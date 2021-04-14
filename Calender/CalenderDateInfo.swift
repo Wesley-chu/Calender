@@ -71,10 +71,19 @@ class CalenderDateInfo {
     
     func text(indexPathRow:Int) -> String{
         let realNumber = indexPathRow + 1 - self.howManyDaysShouldIAddFromFirstFrame
-        if indexPathRow < self.howManyDaysShouldIAddFromFirstFrame{
+        if indexPathRow < self.howManyDaysShouldIAddFromFirstFrame || realNumber > self.numberOfDaysInThisMonth {
             return ""
         }else{
             return "\(realNumber)"
+        }
+    }
+    
+    func ifActive(indexPathRow:Int) -> Bool{
+        let realNumber = indexPathRow + 1 - self.howManyDaysShouldIAddFromFirstFrame
+        if indexPathRow < self.howManyDaysShouldIAddFromFirstFrame || realNumber > self.numberOfDaysInThisMonth{
+            return false
+        }else{
+            return true
         }
     }
     

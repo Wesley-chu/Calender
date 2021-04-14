@@ -10,13 +10,16 @@
 		09A600BD2610506200953AA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A600BC2610506200953AA8 /* AppDelegate.swift */; };
 		09A600BF2610506200953AA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A600BE2610506200953AA8 /* SceneDelegate.swift */; };
 		09A600C12610506200953AA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A600C02610506200953AA8 /* ViewController.swift */; };
-		09A600C42610506200953AA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A600C22610506200953AA8 /* Main.storyboard */; };
+		09A600C42610506200953AA8 /* ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A600C22610506200953AA8 /* ViewController.storyboard */; };
 		09A600C72610506200953AA8 /* Calender.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09A600C52610506200953AA8 /* Calender.xcdatamodeld */; };
 		09A600C92610506500953AA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A600C82610506500953AA8 /* Assets.xcassets */; };
 		09A600CC2610506500953AA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A600CA2610506500953AA8 /* LaunchScreen.storyboard */; };
 		09A600D72610506500953AA8 /* CalenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A600D62610506500953AA8 /* CalenderTests.swift */; };
 		09A600E22610506600953AA8 /* CalenderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A600E12610506600953AA8 /* CalenderUITests.swift */; };
 		09A600FC26120D3D00953AA8 /* CalenderDateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A600FB26120D3D00953AA8 /* CalenderDateInfo.swift */; };
+		09A60107261853BF00953AA8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A60106261853BF00953AA8 /* UIColor+.swift */; };
+		09A6010F2619B7EB00953AA8 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A6010E2619B7EB00953AA8 /* BackgroundView.swift */; };
+		09A601552625C09400953AA8 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A601542625C09400953AA8 /* DailyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +44,7 @@
 		09A600BC2610506200953AA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A600BE2610506200953AA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09A600C02610506200953AA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		09A600C32610506200953AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		09A600C32610506200953AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ViewController.storyboard; sourceTree = "<group>"; };
 		09A600C62610506200953AA8 /* Calender.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calender.xcdatamodel; sourceTree = "<group>"; };
 		09A600C82610506500953AA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09A600CB2610506500953AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +56,9 @@
 		09A600E12610506600953AA8 /* CalenderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderUITests.swift; sourceTree = "<group>"; };
 		09A600E32610506600953AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09A600FB26120D3D00953AA8 /* CalenderDateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderDateInfo.swift; sourceTree = "<group>"; };
+		09A60106261853BF00953AA8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		09A6010E2619B7EB00953AA8 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		09A601542625C09400953AA8 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +112,11 @@
 				09A600BC2610506200953AA8 /* AppDelegate.swift */,
 				09A600BE2610506200953AA8 /* SceneDelegate.swift */,
 				09A600C02610506200953AA8 /* ViewController.swift */,
+				09A6010E2619B7EB00953AA8 /* BackgroundView.swift */,
 				09A600FB26120D3D00953AA8 /* CalenderDateInfo.swift */,
-				09A600C22610506200953AA8 /* Main.storyboard */,
+				09A601542625C09400953AA8 /* DailyViewController.swift */,
+				09A60106261853BF00953AA8 /* UIColor+.swift */,
+				09A600C22610506200953AA8 /* ViewController.storyboard */,
 				09A600C82610506500953AA8 /* Assets.xcassets */,
 				09A600CA2610506500953AA8 /* LaunchScreen.storyboard */,
 				09A600CD2610506500953AA8 /* Info.plist */,
@@ -239,7 +248,7 @@
 			files = (
 				09A600CC2610506500953AA8 /* LaunchScreen.storyboard in Resources */,
 				09A600C92610506500953AA8 /* Assets.xcassets in Resources */,
-				09A600C42610506200953AA8 /* Main.storyboard in Resources */,
+				09A600C42610506200953AA8 /* ViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +277,10 @@
 				09A600BD2610506200953AA8 /* AppDelegate.swift in Sources */,
 				09A600FC26120D3D00953AA8 /* CalenderDateInfo.swift in Sources */,
 				09A600BF2610506200953AA8 /* SceneDelegate.swift in Sources */,
+				09A6010F2619B7EB00953AA8 /* BackgroundView.swift in Sources */,
 				09A600C72610506200953AA8 /* Calender.xcdatamodeld in Sources */,
+				09A601552625C09400953AA8 /* DailyViewController.swift in Sources */,
+				09A60107261853BF00953AA8 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,12 +316,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		09A600C22610506200953AA8 /* Main.storyboard */ = {
+		09A600C22610506200953AA8 /* ViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				09A600C32610506200953AA8 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		09A600CA2610506500953AA8 /* LaunchScreen.storyboard */ = {

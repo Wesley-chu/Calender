@@ -11,23 +11,43 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dateCollectionView: UICollectionView!
+    @IBOutlet weak var weekLabel: UIStackView!
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
-    var calenderInfo:CalenderDateInfo?
+    
+    var calenderInfo: CalenderDateInfo?
+    var backgroundView: BackgroundView?
     
     let currentYear = Calendar.current.component(.year, from: Date())
     let currentMonth = Calendar.current.component(.month, from: Date())
-    let blue = UIColor(red: 176/255, green: 224/255, blue: 255/255, alpha: 1)
+    let colorOfCal = UIColor(hexString: "#FFFFCC", alpha: 1)
+    let colorOfToday = UIColor(hexString: "#FFFF00", alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        weekLabel.arrangedSubviews.map {
+            $0.backgroundColor = UIColor(hexString: "#FFCC00", alpha: 1)
+        }
+        buttonType()
         
         dateCollectionView.delegate = self
         dateCollectionView.dataSource = self
         
-        calenderInfo = CalenderDateInfo(currentYear: currentYear, currentMonth: currentMonth, colorOfNormalCalender: blue, colorOfToday: UIColor.brown)
+        calenderInfo = CalenderDateInfo(currentYear: currentYear, currentMonth: currentMonth, colorOfNormalCalender: colorOfCal, colorOfToday: colorOfToday)
+        
+        backgroundView = BackgroundView()
+        self.view.addSubview(backgroundView!)
+        
         setUp()
         
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        backgroundView?.frame = UIScreen.main.bounds
+        dateCollectionView.reloadData()
+        print("test")
     }
     
     
@@ -58,7 +78,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return calenderInfo!.numberOfDaysInThisMonth + calenderInfo!.howManyDaysShouldIAddFromFirstFrame
+        return 42
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,28 +94,78 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("chu")
-        
+        if calenderInfo!.ifActive(indexPathRow: indexPath.row){
+            print("chu")
+            backgroundView!.isHidden = false
+            backgroundView!.checkIfisHidden = false
+        }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (dateCollectionView.frame.size.width - 2 * 6) / 7
-        return CGSize(width: width, height: (dateCollectionView.frame.size.height - 10) / 6)
+        let width = (dateCollectionView.frame.size.width - 1 * 6) / 7
+        var height = (dateCollectionView.frame.size.height - 5) / 6
+        if deviceCurrentOrientation() == 5 || deviceCurrentOrientation() == 6{
+            height =
+                ((dateCollectionView.frame.size.height)/2 - 5) / 6
+        }
+        
+        
+        return CGSize(width: width, height: height)
     }
     
     func setUp(){
         dateLabel.text = calenderInfo!.MonthOfLabel
         dateCollectionView.reloadData()
     }
+    
+    func buttonType(){
+        previousButton.layer.cornerRadius = 23
+        nextButton.layer.cornerRadius = 23
+        
+        previousButton.backgroundColor = UIColor(hexString: "#f5f5f5", alpha: 0.5)
+        nextButton.backgroundColor = UIColor(hexString: "#f5f5f5", alpha: 0.5)
+    }
+    
+    func deviceCurrentOrientation() -> Int{
+        let deviceCurrentOrientation: UIDeviceOrientation = UIDevice.current.orientation
+        switch deviceCurrentOrientation {
+            case .faceDown:
+                print("faceDown...")
+                return 1
+            case .faceUp:
+                print("faceUp...")
+                return 2
+            case .landscapeLeft:
+                print("landscapeLeft...")
+                return 3
+            case .landscapeRight:
+                print("landscapeRight...")
+                return 4
+            case .portrait:
+                print("portrait...")
+                return 5
+            case .portraitUpsideDown:
+                print("portraitUpsideDown...")
+                return 6
+            case .unknown:
+                print("unknown...")
+                return 7
+            @unknown default:
+                return 8
+        }
+    }
+    
+    
+    
 
 
 }
