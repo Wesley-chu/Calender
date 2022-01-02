@@ -10,21 +10,30 @@ import UIKit
 
 
 class BackgroundView:UIView{
-    var backgroundColorOfView = UIColor(hexString: "#808080", alpha: 0.5)
+//    var backgroundColorOfView = UIColor(hexString: "#808080", alpha: 0.5)
     var checkIfisHidden = true
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    init() {
-        super.init(frame: UIScreen.main.bounds)
-        self.backgroundColor = backgroundColorOfView
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    init() {
+//        super.init(frame: UIScreen.main.bounds)
+//        self.backgroundColor = backgroundColorOfView
+//        var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapBackgroundView))
+//        self.frame = UIScreen.main.bounds
+//        self.isHidden = true
+//        self.addGestureRecognizer(tapGestureRecognizer)
+//    }
+    override func layoutSubviews() {
+        var backgroundColorOfView = UIColor(hexString: "#808080", alpha: 0.5)
         var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapBackgroundView))
-        self.frame = UIScreen.main.bounds
-        self.isHidden = true
-        self.addGestureRecognizer(tapGestureRecognizer)
+        backgroundColor = backgroundColorOfView
+        isHidden = true
+        addGestureRecognizer(tapGestureRecognizer)
+        
     }
+    
     
     @objc func tapBackgroundView(){
         self.isHidden = !self.isHidden
